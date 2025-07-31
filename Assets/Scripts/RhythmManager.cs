@@ -1,5 +1,6 @@
-using UnityEngine;
 using System;
+using UnityEngine;
+using UnityEngine.Audio;
 
 public class RhythmManager : MonoBehaviour
 {
@@ -12,8 +13,14 @@ public class RhythmManager : MonoBehaviour
 
     public static event Action OnBeat;
 
+    private AudioClip clip;
+    private AudioSource audioSource;
+
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+        clip = audioSource.clip; // Ensure the clip is set before playing
+
         beatInterval = 60f / bpm;
         dspSongStartTime = (float)AudioSettings.dspTime;
     }
@@ -25,6 +32,10 @@ public class RhythmManager : MonoBehaviour
         if (songPosition >= beatInterval)
         {
             Debug.Log("Beat!");
+            
+            audioSource.PlayOneShot(clip);
+            
+
             songPosition -= beatInterval;
             OnBeat?.Invoke();
         }
