@@ -655,7 +655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 462a36de505282e4c8e866bad619012f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bpm: 120
+  bpm: 90
   beatOffset: 0
   beatInterval: 0
   nextBeatTime: 0
@@ -674,11 +674,11 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 3d26864d33fc58d48b52427c21507ae0, type: 3}
-  m_PlayOnAwake: 0
+  m_Resource: {fileID: 8300000, guid: 1319192733ba6904cb1dcdc3afd2f720, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 0.548
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
