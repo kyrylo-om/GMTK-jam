@@ -19,12 +19,12 @@ public class PlayerController : MonoBehaviour
     {
         UpdatePosition();
 
-        rhythmManager.OnBeat += () =>
+        RhythmManager.OnBeat += () =>
         {
 
         };
 
-        rhythmManager.OnBeatWindowEnd += () =>
+        RhythmManager.OnBeatWindowEnd += () =>
         {
             if (!wasMoved)
             {

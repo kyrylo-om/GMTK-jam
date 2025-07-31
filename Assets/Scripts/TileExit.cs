@@ -2,11 +2,6 @@ using UnityEngine;
 
 public class TileExit : MonoBehaviour
 {
-    private GameObject player;
-    void Start()
-    {
-        player = GameObject.Find("Player");
-    }
     void OnEnable()
     {
         PlayerController.OnPlayerDeath += Reset;

@@ -1,11 +1,12 @@
 using System;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.InputSystem.LowLevel;
 
 public class RhythmManager : MonoBehaviour
 {
-    public event Action OnBeat; // global beat event
-    public event Action OnBeatWindowEnd; // global beat event
+    public static event Action OnBeat; // global beat event
+    public static event Action OnBeatWindowEnd; // global beat event
 
     private AudioClip clip;
     private AudioSource audioSource;
