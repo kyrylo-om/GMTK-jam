@@ -655,8 +655,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 462a36de505282e4c8e866bad619012f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bpm: 120
+  bpm: 130
   beatOffset: 0
+  beatInterval: 0
+  nextBeatTime: 0
 --- !u!82 &938980426
 AudioSource:
   m_ObjectHideFlags: 0
@@ -668,9 +670,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: c6154f24a0424214b88965e864cc2481, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Resource: {fileID: 8300000, guid: a879260e2b9a6a04eb2c460afe30fabe, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.106
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -806,6 +808,7 @@ MonoBehaviour:
   gridPosition: {x: 0, y: -1}
   tileSize: 2.5
   beatWindow: 0.15
+  wasMoved: 0
 --- !u!114 &1303375280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -890,7 +893,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!136 &1303375282
 CapsuleCollider:
