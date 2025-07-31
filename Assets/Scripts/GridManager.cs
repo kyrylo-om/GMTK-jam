@@ -1,9 +1,10 @@
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GridManager : MonoBehaviour
 {
     public GameObject tilePrefab;
-    public int gridSize = 4;
+    public int gridSizeX = 5;
+    public int gridSizeY = 8;
     public float tileSize = 1.0f;
 
     void Start()
@@ -13,11 +14,11 @@ public class GameManager : MonoBehaviour
 
     void GenerateBoard()
     {
-        for (int x = 0; x < gridSize; x++)
+        for (int x = 0; x < gridSizeX; x++)
         {
-            for (int y = 0; y < gridSize; y++)
+            for (int y = 0; y < gridSizeY; y++)
             {
-                Vector3 position = new Vector3(x * tileSize, 0, y * tileSize);
+                Vector3 position = new Vector3((x - 2) * tileSize, 0, y * tileSize);
                 Instantiate(tilePrefab, position, Quaternion.identity, transform);
             }
         }

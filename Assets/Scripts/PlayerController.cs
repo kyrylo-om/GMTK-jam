@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     public RhythmManager rhythmManager;
+
+    public static event Action OnPlayerDeath;
 
 
     public Vector2Int gridPosition = new Vector2Int(0, 0); // start at tile (0, 0)
@@ -32,23 +35,31 @@ public class PlayerController : MonoBehaviour
             {
                 Vector2Int newPos = gridPosition + direction;
 
-                // Check bounds
-                if (newPos.x >= 0 && newPos.x < gridSize && newPos.y >= 0 && newPos.y < gridSize)
-                {
-                    gridPosition = newPos;
-                    UpdatePosition();
-                }
+                gridPosition = newPos;
+                UpdatePosition();
             }
         }
         else
         {
             Debug.Log("Off beat!");
         }
-
     }
 
     void UpdatePosition()
     {
         transform.position = new Vector3(gridPosition.x * tileSize, 0, gridPosition.y * tileSize);
+    }
+    void Death()
+    {
+        OnPlayerDeath?.Invoke();
+        gridPosition = Vector2Int.zero;
+        UpdatePosition();
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Death"))
+        {
+            Death();
+        }
     }
 }
