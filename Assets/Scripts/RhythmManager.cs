@@ -4,48 +4,38 @@ using UnityEngine.Audio;
 
 public class RhythmManager : MonoBehaviour
 {
-    public float bpm = 120f;
-    public float beatOffset = 0f;
-
-    private float beatInterval;  // Time between beats
-    private float songPosition;
-    private float dspSongStartTime;
-
-    public static event Action OnBeat;
+    public event Action OnBeat; // global beat event
 
     private AudioClip clip;
     private AudioSource audioSource;
+    public float bpm = 120f;
+    public float beatOffset = 0f;
+
+    public float beatInterval;
+    private float dspSongStartTime;
+    public float nextBeatTime;
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-        clip = audioSource.clip; // Ensure the clip is set before playing
-
         beatInterval = 60f / bpm;
         dspSongStartTime = (float)AudioSettings.dspTime;
+        nextBeatTime = dspSongStartTime + beatOffset;
+        audioSource = GetComponent<AudioSource>();
+        clip = audioSource.clip;
     }
 
     void Update()
     {
-        songPosition = (float)(AudioSettings.dspTime - dspSongStartTime - beatOffset);
-
-        if (songPosition >= beatInterval)
+        if (AudioSettings.dspTime >= nextBeatTime)
         {
-            Debug.Log("Beat!");
-            
-            audioSource.PlayOneShot(clip);
-            
-
-            songPosition -= beatInterval;
+            Beat();
             OnBeat?.Invoke();
+            nextBeatTime += beatInterval;
         }
     }
 
-    public float GetTimeUntilNextBeat()
+    void Beat()
     {
-        float beatInterval = 60f / bpm;
-        float currentTime = (float)AudioSettings.dspTime;
-        float timeSinceLastBeat = currentTime % beatInterval;
-        return Mathf.Min(timeSinceLastBeat, beatInterval - timeSinceLastBeat);
+        audioSource.PlayOneShot(clip);
     }
 }

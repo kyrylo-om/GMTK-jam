@@ -11,15 +11,28 @@ public class PlayerController : MonoBehaviour
     public Vector2Int gridPosition = new Vector2Int(0, 0); // start at tile (0, 0)
     public float tileSize = 1.0f;
     private int gridSize = 4;
-    public float beatWindow = 0.15f;
+    public float beatWindow = 0.0f;
+    public bool wasMoved = false;
 
     void Start()
     {
         UpdatePosition();
+        rhythmManager.OnBeat += () =>
+        {
+            if (!wasMoved)
+            {
+                Death();
+            }
+            else
+            {
+                wasMoved = false;
+            }
+         };
     }
 
     void Update()
     {
+        Debug.Log(wasMoved);
         Vector2Int direction = Vector2Int.zero;
 
         if (Input.GetKeyDown(KeyCode.W)) direction = Vector2Int.up;
@@ -27,21 +40,25 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.A)) direction = Vector2Int.left;
         else if (Input.GetKeyDown(KeyCode.D)) direction = Vector2Int.right;
 
-        float timeOffset = rhythmManager.GetTimeUntilNextBeat();
-
-        if (timeOffset <= beatWindow)
+        if (direction != Vector2Int.zero)
         {
-            if (direction != Vector2Int.zero)
+            float nextBeat = rhythmManager.nextBeatTime;
+            float previousBeat = rhythmManager.nextBeatTime - rhythmManager.beatInterval;
+            float currentTime = (float)AudioSettings.dspTime;
+
+            if (currentTime + beatWindow >= nextBeat || currentTime - beatWindow <= previousBeat)
             {
                 Vector2Int newPos = gridPosition + direction;
 
                 gridPosition = newPos;
                 UpdatePosition();
+                wasMoved = true;
             }
-        }
-        else
-        {
-            Debug.Log("Off beat!");
+            else
+            {
+                Death();
+            }
+            
         }
     }
 
