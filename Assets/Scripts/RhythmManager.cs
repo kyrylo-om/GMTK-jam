@@ -8,8 +8,6 @@ public class RhythmManager : MonoBehaviour
     public static event Action OnBeat; // global beat event
     public static event Action OnBeatWindowEnd; // global beat event
 
-    private AudioClip clip;
-    private AudioSource audioSource;
     public float bpm = 120f;
     public float beatOffset = 0f;
 
@@ -21,7 +19,6 @@ public class RhythmManager : MonoBehaviour
     public float moveWindow = 0.0f;
 
     public bool canMove = false;
-    public bool isPlaying = false;
 
     void Start()
     {
@@ -30,19 +27,20 @@ public class RhythmManager : MonoBehaviour
 
     public void StartLevel()
     {
+        canMove = true;
         beatInterval = 60f / bpm;
         dspSongStartTime = (float)AudioSettings.dspTime;
 
-        nextBeatTime = dspSongStartTime + beatOffset;
+        nextBeatTime = dspSongStartTime + beatOffset + beatInterval;
         nextBeatStartTime = nextBeatTime - moveWindow;
         nextBeatFinishTime = nextBeatTime - (beatInterval - moveWindow);
 
-        isPlaying = true;
+        GameManager.isPlaying = true;
     }
 
     void Update()
     {
-        if (isPlaying)
+        if (GameManager.isPlaying)
         {
             if (AudioSettings.dspTime >= nextBeatTime)
             {
@@ -53,14 +51,14 @@ public class RhythmManager : MonoBehaviour
             if (AudioSettings.dspTime >= nextBeatStartTime)
             {
                 canMove = true;
-                Camera.main.backgroundColor = Color.white;
+                // Camera.main.backgroundColor = Color.white;
                 nextBeatStartTime += beatInterval;
             }
             else if (AudioSettings.dspTime >= nextBeatFinishTime)
             {
                 OnBeatWindowEnd?.Invoke();
                 canMove = false;
-                Camera.main.backgroundColor = Color.black;
+                // Camera.main.backgroundColor = Color.black;
                 nextBeatFinishTime += beatInterval;
             }
         }
