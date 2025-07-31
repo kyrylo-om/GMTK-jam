@@ -29,7 +29,7 @@ public class RhythmManager : MonoBehaviour
         nextBeatTime = dspSongStartTime + beatOffset;
         nextBeatStartTime = nextBeatTime - moveWindow;
         nextBeatFinishTime = nextBeatTime - (beatInterval - moveWindow);
-        
+
         audioSource = GetComponent<AudioSource>();
         clip = audioSource.clip;
     }
@@ -59,6 +59,6 @@ public class RhythmManager : MonoBehaviour
 
     void Beat()
     {
-        audioSource.PlayOneShot(clip);
+        // audioSource.PlayOneShot(clip);
     }
 }
