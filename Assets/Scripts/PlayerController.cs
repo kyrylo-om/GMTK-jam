@@ -21,13 +21,14 @@ public class PlayerController : MonoBehaviour
 
         rhythmManager.OnBeat += () =>
         {
-            
+
         };
 
         rhythmManager.OnBeatWindowEnd += () =>
         {
             if (!wasMoved)
             {
+                Debug.Log("Too late!");
                 Death();
             }
             else
@@ -61,6 +62,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
+                Debug.Log("Too early!");
                 Death();
             }
         }
