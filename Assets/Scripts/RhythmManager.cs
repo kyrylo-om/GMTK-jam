@@ -20,8 +20,14 @@ public class RhythmManager : MonoBehaviour
     public float moveWindow = 0.0f;
 
     public bool canMove = false;
+    public bool isPlaying = false;
 
     void Start()
+    {
+        
+    }
+
+    public void StartLevel()
     {
         beatInterval = 60f / bpm;
         dspSongStartTime = (float)AudioSettings.dspTime;
@@ -30,30 +36,32 @@ public class RhythmManager : MonoBehaviour
         nextBeatStartTime = nextBeatTime - moveWindow;
         nextBeatFinishTime = nextBeatTime - (beatInterval - moveWindow);
 
-        audioSource = GetComponent<AudioSource>();
-        clip = audioSource.clip;
+        isPlaying = true;
     }
 
     void Update()
     {
-        if (AudioSettings.dspTime >= nextBeatTime)
+        if (isPlaying)
         {
-            Beat();
-            OnBeat?.Invoke();
-            nextBeatTime += beatInterval;
-        }
-        if (AudioSettings.dspTime >= nextBeatStartTime)
-        {
-            canMove = true;
-            Camera.main.backgroundColor = Color.white;
-            nextBeatStartTime += beatInterval;
-        }
-        else if (AudioSettings.dspTime >= nextBeatFinishTime)
-        {
-            OnBeatWindowEnd?.Invoke();
-            canMove = false;
-            Camera.main.backgroundColor = Color.black;
-            nextBeatFinishTime += beatInterval;
+            if (AudioSettings.dspTime >= nextBeatTime)
+            {
+                Beat();
+                OnBeat?.Invoke();
+                nextBeatTime += beatInterval;
+            }
+            if (AudioSettings.dspTime >= nextBeatStartTime)
+            {
+                canMove = true;
+                Camera.main.backgroundColor = Color.white;
+                nextBeatStartTime += beatInterval;
+            }
+            else if (AudioSettings.dspTime >= nextBeatFinishTime)
+            {
+                OnBeatWindowEnd?.Invoke();
+                canMove = false;
+                Camera.main.backgroundColor = Color.black;
+                nextBeatFinishTime += beatInterval;
+            }
         }
     }
 

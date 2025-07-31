@@ -2,24 +2,19 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject tilePrefab;
-    public int gridSize = 4;
-    public float tileSize = 1.0f;
+    public AudioClip playTrack;
+    public AudioClip waitTrack;
+    public AudioSource audioSource;
+    public RhythmManager rhythmManager;
 
-    void Start()
+    public void Update()
     {
-        GenerateBoard();
-    }
-
-    void GenerateBoard()
-    {
-        for (int x = 0; x < gridSize; x++)
+        if (Input.GetKeyDown(KeyCode.D))
         {
-            for (int y = 0; y < gridSize; y++)
-            {
-                Vector3 position = new Vector3(x * tileSize, 0, y * tileSize);
-                Instantiate(tilePrefab, position, Quaternion.identity, transform);
-            }
+            audioSource.clip = playTrack;
+            audioSource.Play();
+            rhythmManager.StartLevel();
         }
     }
+
 }
