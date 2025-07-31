@@ -14,10 +14,17 @@ public class PlayerController : MonoBehaviour
     public float beatWindow = 0.0f;
     public bool wasMoved = false;
 
+
     void Start()
     {
         UpdatePosition();
+
         rhythmManager.OnBeat += () =>
+        {
+            
+        };
+
+        rhythmManager.OnBeatWindowEnd += () =>
         {
             if (!wasMoved)
             {
@@ -27,12 +34,12 @@ public class PlayerController : MonoBehaviour
             {
                 wasMoved = false;
             }
-         };
+        };
+
     }
 
     void Update()
     {
-        Debug.Log(wasMoved);
         Vector2Int direction = Vector2Int.zero;
 
         if (Input.GetKeyDown(KeyCode.W)) direction = Vector2Int.up;
@@ -40,25 +47,22 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.A)) direction = Vector2Int.left;
         else if (Input.GetKeyDown(KeyCode.D)) direction = Vector2Int.right;
 
-        if (direction != Vector2Int.zero)
+        if (direction != Vector2Int.zero && !wasMoved)
         {
-            float nextBeat = rhythmManager.nextBeatTime;
-            float previousBeat = rhythmManager.nextBeatTime - rhythmManager.beatInterval;
-            float currentTime = (float)AudioSettings.dspTime;
-
-            if (currentTime + beatWindow >= nextBeat || currentTime - beatWindow <= previousBeat)
+            if (rhythmManager.canMove)
             {
+                wasMoved = true;
+
                 Vector2Int newPos = gridPosition + direction;
 
                 gridPosition = newPos;
                 UpdatePosition();
-                wasMoved = true;
+                
             }
             else
             {
                 Death();
             }
-            
         }
     }
 
