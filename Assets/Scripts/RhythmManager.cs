@@ -27,6 +27,8 @@ public class RhythmManager : MonoBehaviour
 
     public void StartLevel()
     {
+        OnBeat?.Invoke();
+
         canMove = true;
         beatInterval = 60f / bpm;
         dspSongStartTime = (float)AudioSettings.dspTime;

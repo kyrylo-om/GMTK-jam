@@ -8,13 +8,20 @@ public class BallsRhythm : MonoBehaviour
     public int beat;
     void Start()
     {
-        beat = 0;
+        beat = -1;
         children = new Transform[transform.childCount];
 
         for (int i = 0; i < transform.childCount; i++)
         {
             children[i] = transform.GetChild(i);
         }
+
+        PlayerController.OnPlayerDeath += () =>
+        {
+            StartCoroutine(ScaleToTarget(new Vector3(.5f, .5f, .5f), 0.1f, beat));
+            beat = -1;
+        };
+
 
         RhythmManager.OnBeat += () =>
         {
@@ -30,17 +37,18 @@ public class BallsRhythm : MonoBehaviour
 
         IEnumerator ScaleToTarget(Vector3 target, float time, int beat)
         {
-            Vector3 initialScale = children[beat].localScale;
-            float elapsed = 0f;
-
-            while (elapsed < time)
+            if (beat >= 0)
             {
-                children[beat].localScale = Vector3.Lerp(initialScale, target, elapsed / time);
-                elapsed += Time.deltaTime;
-                yield return null;
-            }
+                Vector3 initialScale = children[beat].localScale;
+                float elapsed = 0f;
 
-            //children[beat].localScale = target; 
+                while (elapsed < time)
+                {
+                    children[beat].localScale = Vector3.Lerp(initialScale, target, elapsed / time);
+                    elapsed += Time.deltaTime;
+                    yield return null;
+                }
+            }
         }
     }
 }
