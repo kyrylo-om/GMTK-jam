@@ -22,6 +22,8 @@ public class RhythmManager : MonoBehaviour
 
     public static bool canMove = false;
     public bool flashCamera = false;
+    public static int beat = 0;
+    public static int beatNum = 0;
 
     void Start()
     {
@@ -30,11 +32,7 @@ public class RhythmManager : MonoBehaviour
 
     public void StartLevel()
     {
-        OnBeat?.Invoke();
-
         canMove = true;
-
-        ResetBeat();
 
         GameManager.isPlaying = true;
     }
@@ -54,7 +52,12 @@ public class RhythmManager : MonoBehaviour
         if (AudioSettings.dspTime >= nextBeatTime)
         {
             Beat();
-            OnBeat?.Invoke();
+            beat++;
+            beatNum++;
+            if (beat == 4)
+            {
+                beat = 0;
+            }
             if (GameManager.isPlaying)
             {
                 OnGameBeat?.Invoke();
@@ -81,6 +84,6 @@ public class RhythmManager : MonoBehaviour
 
     void Beat()
     {
-        // audioSource.PlayOneShot(clip);
+        OnBeat?.Invoke();
     }
 }

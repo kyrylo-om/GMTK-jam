@@ -53,6 +53,7 @@ public class PlayerController : MonoBehaviour
         {
             if (direction == Vector2Int.up)
             {
+                // start level
                 if (RhythmManager.canMove)
                 {
                     OnPlayerMove?.Invoke();

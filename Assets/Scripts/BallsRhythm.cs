@@ -5,10 +5,9 @@ using static Unity.VisualScripting.Metadata;
 public class BallsRhythm : MonoBehaviour
 {
     public Transform[] children;
-    public int beat;
+    private int beat;
     void Start()
     {
-        beat = -1;
         children = new Transform[transform.childCount];
 
         for (int i = 0; i < transform.childCount; i++)
@@ -16,23 +15,23 @@ public class BallsRhythm : MonoBehaviour
             children[i] = transform.GetChild(i);
         }
 
-        PlayerController.OnPlayerDeath += () =>
+        // PlayerController.OnPlayerDeath += () =>
+        // {
+        //     StartCoroutine(ScaleToTarget(new Vector3(.5f, .5f, .5f), 0.1f, beat));
+        //     beat = -1;
+        // };
+
+
+        RhythmManager.OnBeat += () =>
         {
-            StartCoroutine(ScaleToTarget(new Vector3(.5f, .5f, .5f), 0.1f, beat));
-            beat = -1;
-        };
+            // beat++;
+            // if (beat == 4)
+            // {
+            //     beat = 0;
+            // }
+            children[RhythmManager.beat].localScale = new Vector3(1f, 1f, 1f);
 
-
-        RhythmManager.OnGameBeat += () =>
-        {
-            StartCoroutine(ScaleToTarget(new Vector3(.5f, .5f, .5f), 0.1f, beat));
-
-            beat++;
-            if (beat == 4)
-            {
-                beat = 0;
-            }
-            children[beat].localScale = new Vector3(1f, 1f, 1f);
+            StartCoroutine(ScaleToTarget(new Vector3(.5f, .5f, .5f), 0.1f, RhythmManager.beat == 0 ? 3 : RhythmManager.beat - 1));
         };
 
         IEnumerator ScaleToTarget(Vector3 target, float time, int beat)
