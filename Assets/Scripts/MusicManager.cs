@@ -30,8 +30,7 @@ public class MusicManager : MonoBehaviour
 
         PlayerController.OnPlayerDeath += () =>
         {
-            StopCoroutine("ResumeMusic");
-            StartCoroutine("StopMusic", playSource);
+            StopMusic();
         };
     }
 
@@ -42,10 +41,19 @@ public class MusicManager : MonoBehaviour
     }
     public void StartLevel()
     {
-        StopCoroutine("StopMusic");
-        StartCoroutine("ResumeMusic", playSource);
+        ResumeMusic();
     }
-    IEnumerator StopMusic(AudioSource audioSource)
+    public void StopMusic()
+    {
+        StopCoroutine("ResumeMusicRoutine");
+        StartCoroutine("StopMusicRoutine", playSource);
+    }
+    public void ResumeMusic()
+    {
+        StopCoroutine("StopMusicRoutine");
+        StartCoroutine("ResumeMusicRoutine", playSource);
+    }
+    IEnumerator StopMusicRoutine(AudioSource audioSource)
     {
         while (audioSource.volume > 0)
         {
@@ -55,7 +63,7 @@ public class MusicManager : MonoBehaviour
         yield break;
     }
 
-    IEnumerator ResumeMusic(AudioSource audioSource)
+    IEnumerator ResumeMusicRoutine(AudioSource audioSource)
     {
         while (audioSource.volume < 1)
         {

@@ -6,13 +6,14 @@ public class GameManager : MonoBehaviour
     public AudioClip waitTrack;
     public RhythmManager rhythmManager;
     private MusicManager musicManager;
+    public CameraManager cameraManager;
     
     public static bool isPlaying = false;
 
     void Start()
     {
         musicManager = GetComponent<MusicManager>();
-        
+
         Application.targetFrameRate = 60;
         PlayerController.OnPlayerDeath += () =>
         {
@@ -40,5 +41,7 @@ public class GameManager : MonoBehaviour
     public void Win()
     {
         isPlaying = false;
+        musicManager.StopMusic();
+        StartCoroutine(cameraManager.MoveCamera(11, 2));
     }
 }
