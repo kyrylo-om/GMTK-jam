@@ -10,6 +10,14 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        RhythmManager.OnBeat += () =>
+        {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+        };
+
         Application.targetFrameRate = 60;
         PlayerController.OnPlayerDeath += () =>
         {
@@ -19,15 +27,12 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D) && !isPlaying)
-        {
-            StartLevel();
-            isPlaying = true;
-        }
+        
     }
 
-    void StartLevel()
+    public void StartLevel()
     {
+        isPlaying = true;
         audioSource.clip = playTrack;
         audioSource.Play();
         rhythmManager.StartLevel();
@@ -37,7 +42,6 @@ public class GameManager : MonoBehaviour
     {
         isPlaying = false;
         audioSource.clip = waitTrack;
-        audioSource.Play();
     }
 
 }

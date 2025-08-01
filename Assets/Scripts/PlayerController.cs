@@ -4,13 +4,13 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public RhythmManager rhythmManager;
+    public GameManager gameManager;
 
     public static event Action OnPlayerDeath;
 
 
     public Vector2Int gridPosition = new Vector2Int(0, 0); // start at tile (0, 0)
     public float tileSize = 1.0f;
-    private int gridSize = 4;
     public float beatWindow = 0.0f;
     public bool wasMoved = false;
 
@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         UpdatePosition();
+        wasMoved = true;
 
         RhythmManager.OnBeat += () =>
         {
@@ -45,27 +46,53 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.W)) direction = Vector2Int.left;
         else if (Input.GetKeyDown(KeyCode.S)) direction = Vector2Int.right;
-        else if (Input.GetKeyDown(KeyCode.A)) direction = Vector2Int.down;
         else if (Input.GetKeyDown(KeyCode.D)) direction = Vector2Int.up;
 
-        if (direction != Vector2Int.zero && !wasMoved)
+        if (!GameManager.isPlaying)
         {
-            if (rhythmManager.canMove)
+            if (direction == Vector2Int.up)
             {
-                wasMoved = true;
-
+                if (RhythmManager.canMove)
+                {
+                    gameManager.StartLevel();
+                }
+                else
+                {
+                    direction = Vector2Int.zero;
+                }
+            }
+            if (direction != Vector2Int.zero)
+            {
                 Vector2Int newPos = gridPosition + direction;
 
                 gridPosition = newPos;
                 UpdatePosition();
-                
-            }
-            else
-            {
-                Debug.Log("Too early!");
-                Death();
             }
         }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.A)) direction = Vector2Int.down;
+
+            if (direction != Vector2Int.zero && !wasMoved)
+            {
+                if (RhythmManager.canMove)
+                {
+                    wasMoved = true;
+
+                    Vector2Int newPos = gridPosition + direction;
+
+                    gridPosition = newPos;
+                    UpdatePosition();
+
+                }
+                else
+                {
+                    Debug.Log("Too early!");
+                    Death();
+                }
+            }
+        }
+
     }
 
     void UpdatePosition()
@@ -75,8 +102,9 @@ public class PlayerController : MonoBehaviour
     void Death()
     {
         OnPlayerDeath?.Invoke();
-        gridPosition = Vector2Int.zero;
+        gridPosition = new Vector2Int(0, -1);
         UpdatePosition();
+        wasMoved = true;
     }
     private void OnTriggerEnter(Collider other)
     {
