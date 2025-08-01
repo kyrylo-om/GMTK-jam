@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TileExit : MonoBehaviour
+public class BaseTile : MonoBehaviour
 {
     void OnEnable()
     {
@@ -13,11 +13,13 @@ public class TileExit : MonoBehaviour
     private void OnCollisionExit(Collision collision)
     {
         GetComponent<Renderer>().enabled = false;
-        GetComponent<Collider>().enabled = false;
+        GetComponent<Collider>().isTrigger = true;
+        gameObject.tag = "Death";
     }
     void Reset()
     {
         GetComponent<Renderer>().enabled = true;
-        GetComponent<Collider>().enabled = true;
+        GetComponent<Collider>().isTrigger = false;
+        gameObject.tag = "Untagged";
     }
 }
