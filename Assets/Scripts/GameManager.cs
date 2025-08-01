@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     {
         RhythmManager.OnBeat += () =>
         {
-            if (!audioSource.isPlaying)
+            if (!audioSource.isPlaying && audioSource.clip == waitTrack)
             {
                 audioSource.Play();
             }
@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 
     public void StartLevel()
@@ -44,4 +44,9 @@ public class GameManager : MonoBehaviour
         audioSource.clip = waitTrack;
     }
 
+    public void Win()
+    {
+        audioSource.loop = false;
+        isPlaying = false;
+    }
 }

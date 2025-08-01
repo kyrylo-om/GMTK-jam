@@ -23,7 +23,7 @@ public class BallsRhythm : MonoBehaviour
         };
 
 
-        RhythmManager.OnBeat += () =>
+        RhythmManager.OnGameBeat += () =>
         {
             StartCoroutine(ScaleToTarget(new Vector3(.5f, .5f, .5f), 0.1f, beat));
 

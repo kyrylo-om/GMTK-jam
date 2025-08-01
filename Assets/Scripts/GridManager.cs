@@ -15,7 +15,7 @@ public class GridManager : MonoBehaviour
 
     void GenerateBoard()
     {
-        Vector3 position = new Vector3((0) * tileSize, -1, (gridSizeY) * tileSize);
+        Vector3 position = new Vector3((0) * tileSize, -1, (gridSizeY + 1) * tileSize);
         Instantiate(EndBlock, position, Quaternion.identity, transform);
 
 

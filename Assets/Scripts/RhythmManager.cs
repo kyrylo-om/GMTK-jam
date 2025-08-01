@@ -7,7 +7,7 @@ using UnityEngine.InputSystem.LowLevel;
 public class RhythmManager : MonoBehaviour
 {
     public static event Action OnBeat; // global beat event
-    public static event Action OnGameBeat;
+    public static event Action OnGameBeat; // called only when the level is being played
     public static event Action OnBeatWindowEnd;
 
     public float bpm = 120f;

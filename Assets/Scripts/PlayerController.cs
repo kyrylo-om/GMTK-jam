@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public float tileSize = 1.0f;
     public float beatWindow = 0.0f;
     public bool wasMoved = false;
+    public static event Action OnPlayerMove; // called when player moves
 
 
     void Start()
@@ -54,6 +55,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (RhythmManager.canMove)
                 {
+                    OnPlayerMove?.Invoke();
                     gameManager.StartLevel();
                 }
                 else
@@ -75,6 +77,7 @@ public class PlayerController : MonoBehaviour
 
             if (direction != Vector2Int.zero && !wasMoved)
             {
+                OnPlayerMove?.Invoke();
                 if (RhythmManager.canMove)
                 {
                     wasMoved = true;
@@ -111,6 +114,10 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Death"))
         {
             Death();
+        }
+        if (other.CompareTag("Win"))
+        {
+            gameManager.Win();
         }
     }
 }
