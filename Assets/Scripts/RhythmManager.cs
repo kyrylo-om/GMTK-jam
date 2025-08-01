@@ -21,6 +21,7 @@ public class RhythmManager : MonoBehaviour
     public float moveWindow = 0.0f;
 
     public static bool canMove = false;
+    public static bool canStartMoving = false;
     public bool flashCamera = false;
     public static int beat = 0;
     public static int beatNum = 0;
@@ -67,6 +68,7 @@ public class RhythmManager : MonoBehaviour
         if (AudioSettings.dspTime >= nextBeatStartTime)
         {
             canMove = true;
+            if (beat == 0) canStartMoving = true;
             if (flashCamera) Camera.main.backgroundColor = Color.white;
             nextBeatStartTime += beatInterval;
         }
@@ -77,6 +79,7 @@ public class RhythmManager : MonoBehaviour
                 OnBeatWindowEnd?.Invoke();
             }
             canMove = false;
+            canStartMoving = false;
             if (flashCamera) Camera.main.backgroundColor = Color.black;
             nextBeatFinishTime += beatInterval;
         }

@@ -19,8 +19,6 @@ public class MusicManager : MonoBehaviour
         {
             if (RhythmManager.beatNum % 4 == 0)
             {
-                Debug.Log("Play!");
-                Debug.Log(RhythmManager.beatNum);
                 waitSource.Play();
             }
             // if (playStartBeat != 0 && (RhythmManager.beatNum - playStartBeat) % 16 == 0)
@@ -51,7 +49,6 @@ public class MusicManager : MonoBehaviour
     {
         while (audioSource.volume > 0)
         {
-            Debug.Log("stop");
             audioSource.volume -= 0.1f;
             yield return new WaitForSeconds(0.01f);
         }
@@ -62,7 +59,6 @@ public class MusicManager : MonoBehaviour
     {
         while (audioSource.volume < 1)
         {
-            Debug.Log("resume");
             audioSource.volume += 0.1f;
             yield return new WaitForSeconds(0.01f);
         }
