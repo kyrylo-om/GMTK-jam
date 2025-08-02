@@ -41,6 +41,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _BlendedNormals_fb162b399d3548ddb85ce6d2b6f49937_Normalstexture_3961514324_Texture2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -67,6 +71,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normals_texture:
+        m_Texture: {fileID: 2800000, guid: a2ce78f65f6c6f84686dc88e4ab934f3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -126,7 +134,12 @@ Material:
     - _Intersection_Foam_Fade: 0.25
     - _Intersection_Foam_Speed: 0.03
     - _Intersection_Foam_Tiling: 5
+    - _Lightning_smoothness: 0.38
+    - _Lughtning_Hardness: 0.851
     - _Metallic: 0
+    - _Normals_Scale: 0.09
+    - _Normals_speed: 0.08
+    - _Normals_strength: 0.3
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _Posterize: 0
@@ -148,6 +161,8 @@ Material:
     - _Surface_Foam_Distortion: 0.1
     - _Surface_Foam_Speed: 0.03
     - _Surface_Foam_Tiling: 11.2
+    - _ToonRampOffset: 0
+    - _ToonRampSmoothness: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
@@ -160,5 +175,7 @@ Material:
     - _Intersection_Foam_Color: {r: 0.8196079, g: 1, b: 0.6509804, a: 0}
     - _Shallow_Color: {r: 0.29411766, g: 0.8235295, b: 0.59607846, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _Specular_color: {r: 1, g: 1, b: 1, a: 0.54509807}
+    - _ToonRampTinting: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
