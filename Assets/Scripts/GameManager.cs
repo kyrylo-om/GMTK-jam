@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public AudioClip playTrack;
-    public AudioClip waitTrack;
     public RhythmManager rhythmManager;
     private MusicManager musicManager;
     public CameraManager cameraManager;

@@ -14,15 +14,17 @@ public class MusicManager : MonoBehaviour
     {
         waitSource = gameObject.GetComponents<AudioSource>()[0];
         playSource = gameObject.GetComponents<AudioSource>()[1];
+        waitSource.PlayOneShot(waitMusic);
+        playSource.PlayOneShot(playMusic);
 
         RhythmManager.OnBeat += () =>
         {
-            if (RhythmManager.beatNum % 4 == 0)
+            if (RhythmManager.beatNum % 16 == 0)
             {
                 waitSource.PlayOneShot(waitMusic);
             }
             // if (playStartBeat != 0 && (RhythmManager.beatNum - playStartBeat) % 16 == 0)
-            if (RhythmManager.beatNum % 16 == 0)
+            if (RhythmManager.beatNum % 96 == 0)
             {
                 playSource.PlayOneShot(playMusic);
             }
@@ -32,6 +34,13 @@ public class MusicManager : MonoBehaviour
         {
             StopMusic();
         };
+
+        Invoke("DelayedStart", 0.1f);
+    }
+    void DelayedStart()
+    {
+        waitSource.Stop();
+        playSource.Stop();
     }
 
     // Update is called once per frame
