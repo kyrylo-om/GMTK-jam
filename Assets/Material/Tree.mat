@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-54288106925589041
+--- !u!114 &-6180451622687748361
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Water
-  m_Shader: {fileID: -6465566751694194690, guid: fdaf6a29e31d76d469b2d83e71588553, type: 3}
+  m_Name: Tree
+  m_Shader: {fileID: -6465566751694194690, guid: 08b29f1a0d4d0ea44a9f51a6cb02e239, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -29,7 +29,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses:
   - MOTIONVECTORS
@@ -43,6 +43,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Color_Texture:
+        m_Texture: {fileID: 2800000, guid: 73ef7a121d88eb84cb8c1220f00b355e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -81,10 +85,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Surface_Foam_Texture:
-        m_Texture: {fileID: 2800000, guid: b6b3ab1c34f5ad34894054adde17f902, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -104,13 +104,13 @@ Material:
     - _AlphaToMask: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
-    - _BlendOp: 0
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
+    - _Color01Influence: 0.325
+    - _Color02Influence: 1
     - _Cull: 2
     - _Cutoff: 0.5
-    - _Depth_Fade_Distance: 0.37
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -119,46 +119,38 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Horizon_Distance: 2.63
-    - _Intersection_Foam_Cutoff: 4.96
-    - _Intersection_Foam_Depth: 3.65
-    - _Intersection_Foam_Direction: 0
-    - _Intersection_Foam_Fade: 0.25
-    - _Intersection_Foam_Speed: 0.03
-    - _Intersection_Foam_Tiling: 2.24
+    - _Gradient_strength: 0.474
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
-    - _Posterize: 0
-    - _Posterize_Steps: 10
-    - _QueueControl: 1
+    - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Refraction_Scale: 0.15
-    - _Refraction_Speed: 0.1
-    - _Refraction_Strength: 0.005
-    - _SampleGI: 0
+    - _Rim_brightness: 0
+    - _Rim_power: 3.6
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
-    - _Surface_Foam_Direction: 0
-    - _Surface_Foam_Distortion: 0.5
-    - _Surface_Foam_Speed: 0.05
-    - _Surface_Foam_Tiling: 5.14
+    - _Tile_texture: 0.2
+    - _ToonRampOffset: 0.3
+    - _ToonRampSmoothness: 0
+    - _Toon_final_offset: 0.816
+    - _Triplanar: 1
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Bottom_Color: {r: 0.355, g: 0.18903427, b: 0.16242924, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Deep_Color: {r: 0.2941176, g: 0.33676296, b: 0.8235294, a: 0.62352943}
+    - _Color01: {r: 1, g: 0.99567103, b: 0.60173166, a: 0}
+    - _Color02: {r: 0.4392157, g: 0.23987208, b: 0.1431843, a: 0}
+    - _Color03: {r: 0.16470589, g: 0.16470589, b: 0.16470589, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Foam_Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Horizon_Color: {r: 1, g: 0.7944628, b: 0, a: 0}
-    - _Intersection_Foam_Color: {r: 1, g: 1, b: 1, a: 0}
-    - _Shallow_Color: {r: 0.411, g: 0.780224, b: 1, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _ToonRampTinting: {r: 0.90800005, g: 0.90800005, b: 0.90800005, a: 0}
+    - _Top_Color: {r: 1, g: 0.5008276, b: 0.24800003, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
