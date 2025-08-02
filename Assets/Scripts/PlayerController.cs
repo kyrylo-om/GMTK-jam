@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
 {
     public RhythmManager rhythmManager;
     public GameManager gameManager;
+    public GameObject deathTextPrefab;
 
     public static event Action OnPlayerDeath;
 
@@ -29,7 +30,7 @@ public class PlayerController : MonoBehaviour
         {
             if (!wasMoved)
             {
-                Debug.Log("Too late!");
+                Instantiate(deathTextPrefab, gameObject.transform.position, Quaternion.identity).GetComponent<DeathTextPopup>().SetText("Too late!");
                 Death();
             }
             else
@@ -92,7 +93,7 @@ public class PlayerController : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("Too early!");
+                    Instantiate(deathTextPrefab, gameObject.transform.position, Quaternion.identity).GetComponent<DeathTextPopup>().SetText("Too early!");
                     Death();
                 }
             }
