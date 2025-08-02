@@ -6,7 +6,7 @@ public class EndTile : MonoBehaviour
     public int beat;
     public TMPro.TextMeshPro textComponent;
     public bool activated = false;
-    [SerializeField] private Animator animator;
+    public Animator animator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,7 +23,7 @@ public class EndTile : MonoBehaviour
                 }
                 else
                 {
-                    transform.GetChild(0).tag = "Death";
+                    transform.GetChild(0).tag = "ForbiddenEndTile";
                 }
             }
         };

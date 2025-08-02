@@ -117,6 +117,11 @@ public class PlayerController : MonoBehaviour
         {
             Death();
         }
+        if (other.CompareTag("ForbiddenEndTile"))
+        {
+            other.transform.parent.gameObject.GetComponent<EndTile>().animator.Play("End Block Forbidden");
+            Death();
+        }
         if (other.CompareTag("Win"))
         {
             GameManager.currentLevel = other.transform.parent.parent.gameObject;
