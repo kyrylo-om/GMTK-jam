@@ -107,9 +107,9 @@ public class PlayerController : MonoBehaviour
     }
     void Death()
     {
-        OnPlayerDeath?.Invoke();
         gridPosition = new Vector2Int(0, 0);
         UpdatePosition();
+        OnPlayerDeath?.Invoke();
         wasMoved = true;
     }
     private void OnTriggerEnter(Collider other)
