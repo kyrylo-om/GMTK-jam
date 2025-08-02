@@ -29,7 +29,7 @@ public class CameraManager : MonoBehaviour
 
             float easedT = Mathf.SmoothStep(0, 1, t);
 
-            float newZ = Mathf.Lerp(start, start + tiles * gridManager.tileSize, easedT);
+            float newZ = Mathf.Lerp(start, start + tiles * GridManager.tileSize, easedT);
             transform.position = new Vector3(transform.position.x, transform.position.y, newZ);
 
             yield return null;

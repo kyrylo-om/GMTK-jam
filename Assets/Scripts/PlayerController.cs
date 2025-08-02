@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        UpdatePosition();
         wasMoved = true;
 
         RhythmManager.OnBeat += () =>
@@ -56,6 +55,7 @@ public class PlayerController : MonoBehaviour
                 // start level
                 if (RhythmManager.canStartMoving)
                 {
+                    gridPosition += direction;
                     OnPlayerMove?.Invoke();
                     gameManager.StartLevel();
                 }
@@ -66,9 +66,7 @@ public class PlayerController : MonoBehaviour
             }
             if (direction != Vector2Int.zero)
             {
-                Vector2Int newPos = gridPosition + direction;
-
-                gridPosition = newPos;
+                gridPosition += direction;
                 UpdatePosition();
             }
         }
@@ -81,11 +79,14 @@ public class PlayerController : MonoBehaviour
                 OnPlayerMove?.Invoke();
                 if (RhythmManager.canMove)
                 {
+                    if (direction == Vector2Int.up && gridPosition.y == GameManager.currentLevel.GetComponent<GridManager>().gridSizeY + 1)
+                    {
+                        gridPosition += direction;
+                    }
+
                     wasMoved = true;
 
-                    Vector2Int newPos = gridPosition + direction;
-
-                    gridPosition = newPos;
+                    gridPosition += direction;
                     UpdatePosition();
 
                 }
@@ -101,12 +102,12 @@ public class PlayerController : MonoBehaviour
 
     void UpdatePosition()
     {
-        transform.position = new Vector3(gridPosition.x * tileSize, 0, gridPosition.y * tileSize);
+        transform.position = GameManager.currentLevel.transform.position + new Vector3(gridPosition.x * tileSize, 0, gridPosition.y * tileSize);
     }
     void Death()
     {
         OnPlayerDeath?.Invoke();
-        gridPosition = new Vector2Int(0, -1);
+        gridPosition = new Vector2Int(0, 0);
         UpdatePosition();
         wasMoved = true;
     }
@@ -118,6 +119,8 @@ public class PlayerController : MonoBehaviour
         }
         if (other.CompareTag("Win"))
         {
+            GameManager.currentLevel = other.transform.parent.parent.gameObject;
+            gridPosition.y = 0;
             gameManager.Win();
         }
     }
