@@ -9,7 +9,7 @@ public class EndTile : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        PlayerController.OnPlayerMove += () =>
+        RhythmManager.OnPlayerSyncedBeat += () =>
         {
             if (!activated)
             {
@@ -28,11 +28,6 @@ public class EndTile : MonoBehaviour
         };
         PlayerController.OnPlayerDeath += () =>
         {
-            if (!activated)
-            {
-                beat = 4;
-                textComponent.text = beat.ToString();
-            }
         };
     }
 

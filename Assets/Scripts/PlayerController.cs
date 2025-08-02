@@ -140,10 +140,6 @@ public class PlayerController : MonoBehaviour
         {
             GameManager.currentLevel = other.transform.parent.parent.gameObject;
             gridPosition.y = 0;
-            if (RhythmManager.afterBeatWindow)
-            {
-                OnPlayerBeat?.Invoke();
-            }
             gameManager.Win();
         }
     }
