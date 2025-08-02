@@ -3,13 +3,12 @@ using UnityEngine;
 
 public class BaseTile : MonoBehaviour
 {
-    private Animator animator;
+    public Animator animator;
     public bool steppedOn = false;
     public bool submerged = false;
     private bool skipReset = false;
     void Start()
     {
-        animator = GetComponent<Animator>();
         PlayerController.OnPlayerDeath += Reset;
     }
     private void OnCollisionEnter(Collision collision)
@@ -19,7 +18,6 @@ public class BaseTile : MonoBehaviour
     }
     private void OnCollisionExit(Collision collision)
     {
-        Debug.Log("Exit");
         steppedOn = false;
         if (!skipReset)
         {
@@ -35,7 +33,7 @@ public class BaseTile : MonoBehaviour
     }
     void Reset()
     {
-        Debug.Log("Reset");
+        GetComponent<Collider>().isTrigger = false;
         if (submerged)
         {
             animator.SetTrigger("Reset");
@@ -47,7 +45,6 @@ public class BaseTile : MonoBehaviour
             animator.SetTrigger("Reset");
         }
         submerged = false;
-        GetComponent<Collider>().isTrigger = false;
         gameObject.tag = "Untagged";
     }
 }

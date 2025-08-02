@@ -2136,6 +2136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dec571911dfc1643ade6c2c9404a8c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waitMusic: {fileID: 8300000, guid: 2888d8d81a561674f89beb79459990f0, type: 3}
+  playMusic: {fileID: 8300000, guid: b58241a62f02a8f4396e71cfc8cc9fd0, type: 3}
 --- !u!1 &963734813
 GameObject:
   m_ObjectHideFlags: 0
@@ -2725,10 +2727,12 @@ MonoBehaviour:
   rhythmManager: {fileID: 938980425}
   gameManager: {fileID: 938980427}
   deathTextPrefab: {fileID: 5789321515372097883, guid: 5f5b328c991922a4ca44a6add00ce87b, type: 3}
-  gridPosition: {x: 0, y: -1}
+  gridPosition: {x: 0, y: 0}
   tileSize: 2.5
   beatWindow: 0.15
   wasMoved: 0
+  jumpHeight: 1.5
+  jumpDuration: 0.1
 --- !u!114 &1303375280
 MonoBehaviour:
   m_ObjectHideFlags: 0

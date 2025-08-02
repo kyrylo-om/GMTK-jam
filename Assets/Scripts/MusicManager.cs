@@ -6,8 +6,8 @@ public class MusicManager : MonoBehaviour
 {
     private static AudioSource waitSource;
     private static AudioSource playSource;
-    private Coroutine stopMusic;
-    private Coroutine resumeMusic;
+    public AudioClip waitMusic;
+    public AudioClip playMusic;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,12 +19,12 @@ public class MusicManager : MonoBehaviour
         {
             if (RhythmManager.beatNum % 4 == 0)
             {
-                waitSource.Play();
+                waitSource.PlayOneShot(waitMusic);
             }
             // if (playStartBeat != 0 && (RhythmManager.beatNum - playStartBeat) % 16 == 0)
             if (RhythmManager.beatNum % 16 == 0)
             {
-                playSource.Play();
+                playSource.PlayOneShot(playMusic);
             }
         };
 

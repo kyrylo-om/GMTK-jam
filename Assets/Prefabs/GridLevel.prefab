@@ -46,10 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 4906634177120415625, guid: d6cf469a13b873642a716aaa5652aed4, type: 3}
-  EndBlock: {fileID: 706711061498466506, guid: 580f0f271ededfb41ad6d6402fd76f86, type: 3}
+  celesteTilePrefab: {fileID: 8414801484697346815, guid: 53f41ccc728230a42a50e2e52860c1d5, type: 3}
+  startTile: {fileID: 9076969988118847510}
   gridSizeX: 5
   gridSizeY: 8
-  startTile: {fileID: 9076969988118847510}
 --- !u!1001 &8374828248416137436
 PrefabInstance:
   m_ObjectHideFlags: 0

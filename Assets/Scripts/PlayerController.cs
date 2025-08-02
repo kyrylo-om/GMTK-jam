@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -8,13 +9,16 @@ public class PlayerController : MonoBehaviour
     public GameObject deathTextPrefab;
 
     public static event Action OnPlayerDeath;
+    public static event Action OnPlayerMove; // called when player moves
+    public static event Action OnPlayerBeat; // same as OnBeat but tied to player
 
 
     public Vector2Int gridPosition = new Vector2Int(0, 0); // start at tile (0, 0)
     public float tileSize = 1.0f;
     public float beatWindow = 0.0f;
     public bool wasMoved = false;
-    public static event Action OnPlayerMove; // called when player moves
+    public float jumpHeight = 1f;
+    public float jumpDuration = 0.2f;
 
 
     void Start()
@@ -31,6 +35,7 @@ public class PlayerController : MonoBehaviour
             if (!wasMoved)
             {
                 Instantiate(deathTextPrefab, gameObject.transform.position, Quaternion.identity).GetComponent<DeathTextPopup>().SetText("Too late!");
+                OnPlayerBeat?.Invoke();
                 Death();
             }
             else
@@ -56,9 +61,14 @@ public class PlayerController : MonoBehaviour
                 // start level
                 if (RhythmManager.canStartMoving)
                 {
+                    wasMoved = true;
                     gridPosition += direction;
-                    OnPlayerMove?.Invoke();
                     gameManager.StartLevel();
+                    OnPlayerMove?.Invoke();
+                    if (RhythmManager.beforeBeatWindow)
+                    {
+                        OnPlayerBeat?.Invoke();
+                    }
                 }
                 else
                 {
@@ -80,6 +90,7 @@ public class PlayerController : MonoBehaviour
                 OnPlayerMove?.Invoke();
                 if (RhythmManager.canMove)
                 {
+                    OnPlayerBeat?.Invoke();
                     if (direction == Vector2Int.up && gridPosition.y == GameManager.currentLevel.GetComponent<GridManager>().gridSizeY + 1)
                     {
                         gridPosition += direction;
@@ -103,7 +114,9 @@ public class PlayerController : MonoBehaviour
 
     void UpdatePosition()
     {
-        transform.position = GameManager.currentLevel.transform.position + new Vector3(gridPosition.x * tileSize, 0, gridPosition.y * tileSize);
+        Vector3 destination = GameManager.currentLevel.transform.position + new Vector3(gridPosition.x * tileSize, 0, gridPosition.y * tileSize);
+        StartCoroutine(Jump(destination));
+
     }
     void Death()
     {
@@ -127,7 +140,26 @@ public class PlayerController : MonoBehaviour
         {
             GameManager.currentLevel = other.transform.parent.parent.gameObject;
             gridPosition.y = 0;
+            if (RhythmManager.afterBeatWindow)
+            {
+                OnPlayerBeat?.Invoke();
+            }
             gameManager.Win();
         }
+    }
+
+    public IEnumerator Jump(Vector3 destination)
+    {
+        float jumpProgress = 0f;
+        Vector3 jumpStartPosition = transform.position;
+
+        while (jumpProgress < 1f)
+        {
+            jumpProgress += Time.deltaTime / jumpDuration;
+            float height = Mathf.Sin(jumpProgress * Mathf.PI) * jumpHeight;
+            transform.position = Vector3.Lerp(jumpStartPosition, destination, jumpProgress) + Vector3.up * height;
+            yield return null;
+        }
+        transform.position = destination;
     }
 }
