@@ -52,6 +52,7 @@ public class GridManager : MonoBehaviour
 
                 GameObject newTile = Instantiate(tileToSpawn, transform);
                 newTile.transform.localPosition = position;
+                newTile.transform.Rotate(0, Random.Range(0, 5) * 90f, 0);
 
                 if (tileToSpawn == celesteTilePrefab)
                 {
