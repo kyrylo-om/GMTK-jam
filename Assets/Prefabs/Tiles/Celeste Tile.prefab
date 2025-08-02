@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Celeste Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 5587677649944702424, guid: d6cf469a13b873642a716aaa5652aed4, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5318345441897957212, guid: d6cf469a13b873642a716aaa5652aed4, type: 3}
     m_RemovedGameObjects: []
@@ -84,4 +88,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 5741224295076752968}
-  beat: 0
+  active: 0
