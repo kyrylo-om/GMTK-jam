@@ -89,7 +89,7 @@ Material:
     - _AddPrecomputedVelocity: 0
     - _AlphaClip: 0
     - _AlphaToMask: 0
-    - _Big_noise_strength: 2.49
+    - _Big_noise_strength: 1.99
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
@@ -122,23 +122,23 @@ Material:
     - _SrcBlendAlpha: 1
     - _Strength: 3.5
     - _Surface: 0
-    - _Texture_strength: 0.27
+    - _Texture_strength: 0.314
     - _Tiling_Big_noise: 0.24
     - _Tiling_noise: 5.1
     - _Tiling_small_noise: 0.7
-    - _UV_tiling: 33.333332
+    - _UV_tiling: 25
     - _WorkflowMode: 1
     - _ZWrite: 1
     - _value: 1.48
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color01: {r: 1, g: 0.73864317, b: 0.291, a: 0}
-    - _Color02: {r: 0.44705883, g: 0.28374118, b: 0.16496472, a: 0}
+    - _Color01: {r: 0.47058824, g: 0.4596704, b: 0.25929412, a: 0}
+    - _Color02: {r: 0.12941179, g: 0.4117647, b: 0, a: 0}
     - _Color03: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _Start_End_gradient: {r: -13.2, g: -22.3, b: 0, a: 0}
+    - _Start_End_gradient: {r: -7.6, g: -22.3, b: 0, a: 0}
     - _UV_offset: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
