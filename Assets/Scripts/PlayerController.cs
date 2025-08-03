@@ -50,9 +50,18 @@ public class PlayerController : MonoBehaviour
     {
         Vector2Int direction = Vector2Int.zero;
 
-        if (Input.GetKeyDown(KeyCode.W)) direction = Vector2Int.left;
-        else if (Input.GetKeyDown(KeyCode.S)) direction = Vector2Int.right;
-        else if (Input.GetKeyDown(KeyCode.D)) direction = Vector2Int.up;
+        if (Input.GetKeyDown(KeyCode.W)) { 
+            direction = Vector2Int.left;
+            transform.rotation = Quaternion.Euler(0, -90, 0);
+        }
+        else if (Input.GetKeyDown(KeyCode.S)) { 
+            direction = Vector2Int.right;
+            transform.rotation = Quaternion.Euler(0, 90, 0);
+        }
+        else if (Input.GetKeyDown(KeyCode.D)) { 
+            direction = Vector2Int.up;
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
 
         if (!GameManager.isPlaying)
         {
@@ -83,31 +92,35 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.A)) direction = Vector2Int.down;
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                direction = Vector2Int.down;
+                transform.rotation = Quaternion.Euler(0, -180, 0);
+            }
 
             if (direction != Vector2Int.zero && !wasMoved)
-            {
-                OnPlayerMove?.Invoke();
-                if (RhythmManager.canMove)
                 {
-                    OnPlayerBeat?.Invoke();
-                    if (direction == Vector2Int.up && gridPosition.y == GameManager.currentLevel.GetComponent<GridManager>().gridSizeY + 1)
+                    OnPlayerMove?.Invoke();
+                    if (RhythmManager.canMove)
                     {
+                        OnPlayerBeat?.Invoke();
+                        if (direction == Vector2Int.up && gridPosition.y == GameManager.currentLevel.GetComponent<GridManager>().gridSizeY + 1)
+                        {
+                            gridPosition += direction;
+                        }
+
+                        wasMoved = true;
+
                         gridPosition += direction;
+                        UpdatePosition();
+
                     }
-
-                    wasMoved = true;
-
-                    gridPosition += direction;
-                    UpdatePosition();
-
+                    else
+                    {
+                        Instantiate(deathTextPrefab, gameObject.transform.position, Quaternion.identity).GetComponent<DeathTextPopup>().SetText("Too early!");
+                        Death();
+                    }
                 }
-                else
-                {
-                    Instantiate(deathTextPrefab, gameObject.transform.position, Quaternion.identity).GetComponent<DeathTextPopup>().SetText("Too early!");
-                    Death();
-                }
-            }
         }
 
     }
