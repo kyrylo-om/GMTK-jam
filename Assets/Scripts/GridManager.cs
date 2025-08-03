@@ -18,10 +18,10 @@ public class GridManager : MonoBehaviour
     {
         tileProbabilities = new Dictionary<GameObject, float>()
         {
-            { tilePrefab, 0.4f },
-            { celesteTilePrefab, 0.3f },
+            { tilePrefab, 0.6f },
+            { celesteTilePrefab, 0.2f },
             { springTilePrefab, 0.1f },
-            { emptyTilePrefab, 0.2f }
+            { emptyTilePrefab, 0.1f }
         };
         GenerateBoard();
     }
