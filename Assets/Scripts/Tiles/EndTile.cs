@@ -6,6 +6,11 @@ public class EndTile : MonoBehaviour
     public TMPro.TextMeshPro textComponent;
     public bool activated = false;
     public Animator animator;
+    public GameObject block1;
+    public GameObject block2;
+    public Material stone;
+    public Material stone1;
+    public Material emmissive;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -13,18 +18,22 @@ public class EndTile : MonoBehaviour
         {
             if (!activated)
             {
-                animator.Play("End Block Tick", 1);
+                animator.Play("End Block Tick");
                 beat--;
                 if (beat < 0) beat = 3;
                 textComponent.text = beat.ToString();
+                Material[] materials = new Material[] { stone1, stone };
                 if (beat == 0)
                 {
+                    materials = new Material[] { stone, emmissive };
                     transform.GetChild(0).tag = "Win";
                 }
                 else
                 {
                     transform.GetChild(0).tag = "ForbiddenEndTile";
                 }
+                block1.GetComponent<MeshRenderer>().materials = materials;
+                block2.GetComponent<MeshRenderer>().materials = materials;  
             }
         };
         PlayerController.OnPlayerDeath += () =>
@@ -40,8 +49,8 @@ public class EndTile : MonoBehaviour
 
     public void Activate(bool playAnim)
     {
-        if (playAnim) animator.Play("End Block Activate");
-        else transform.Rotate(180f, 0f, 0f);
+        animator.Play("End Block Activate");
+        // else transform.Rotate(180f, 0f, 0f);
         activated = true;
         textComponent.text = "✓";
         transform.GetChild(0).tag = "Untagged";

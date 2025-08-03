@@ -51,6 +51,11 @@ MonoBehaviour:
   textComponent: {fileID: 5257650756185623913}
   activated: 0
   animator: {fileID: 6621037092492987172}
+  block1: {fileID: 6739824800473664249}
+  block2: {fileID: 8341070274535413215}
+  stone: {fileID: 2100000, guid: cdc2fc92fa09e6d4db180a993d726b7b, type: 2}
+  stone1: {fileID: 2100000, guid: 7aba261add819ed4d9b0f4b168ebdbeb, type: 2}
+  emmissive: {fileID: 2100000, guid: 3019fbac407652b40ba775c40dad9fab, type: 2}
 --- !u!95 &6621037092492987172
 Animator:
   serializedVersion: 7
@@ -184,7 +189,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294963167
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -436,3 +441,13 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 33.42, y: 5.2, z: 12.59}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &6739824800473664249 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3778644264426962316, guid: 9a87fe5c597194542811626444c4a40f, type: 3}
+  m_PrefabInstance: {fileID: 1587279165161883789}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8341070274535413215 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7333631254909853010, guid: 9a87fe5c597194542811626444c4a40f, type: 3}
+  m_PrefabInstance: {fileID: 1587279165161883789}
+  m_PrefabAsset: {fileID: 0}
