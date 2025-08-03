@@ -82,6 +82,7 @@ public class PlayerController : MonoBehaviour
                 }
                 else
                 {
+                    Instantiate(deathTextPrefab, gameObject.transform.position, Quaternion.identity).GetComponent<DeathTextPopup>().SetText("Too early!");
                     direction = Vector2Int.zero;
                 }
             }
