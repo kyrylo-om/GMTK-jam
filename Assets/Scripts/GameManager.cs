@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
     public static GameObject currentLevel;
     public static GridManager gridManager;
     public int levelCount = 1;
+    public int currentPos = 0;
+    public int cameraPos = 40;
+    public GameObject scenePrefab;
 
     public static bool isPlaying = false;
 
@@ -34,7 +37,12 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-
+        if (Camera.main.transform.position.z > cameraPos)
+        {
+            currentPos += 100;
+            cameraPos += 100;
+            Instantiate(scenePrefab, new Vector3(-13.87554f, -9, currentPos), Quaternion.identity);
+        }
     }
 
     public void StartLevel()
@@ -66,6 +74,6 @@ public class GameManager : MonoBehaviour
     public void NewLevel(Vector3 position)
     {
         GameObject newLevel = Instantiate(levelPrefab, position, Quaternion.identity);
-        newLevel.GetComponent<GridManager>().gridSizeY = Random.Range(6, 10);
+        newLevel.GetComponent<GridManager>().gridSizeY = Random.Range(4, 10);
     }
 }
