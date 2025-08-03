@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9186306983399613246}
   - component: {fileID: 5318345441897957212}
   - component: {fileID: 5587677649944702424}
+  - component: {fileID: 4897428857899360475}
   m_Layer: 0
   m_Name: Tile
   m_TagString: Untagged
@@ -94,6 +95,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4897428857899360475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4906634177120415625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee85944a6b7dfee48aadf31b085e1698, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flowerPrefab: {fileID: 8732630711968353737, guid: 871c6318955e82f49abf0db84fda3b79, type: 3}
 --- !u!1 &9019633819419063520
 GameObject:
   m_ObjectHideFlags: 0
