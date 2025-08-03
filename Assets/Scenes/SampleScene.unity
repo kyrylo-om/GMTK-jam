@@ -601,9 +601,21 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -2870534671966924212, guid: 7db28e3067e6d87419c49501e26aac9a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.728812
+      objectReference: {fileID: 0}
+    - target: {fileID: -1960362268997115235, guid: 7db28e3067e6d87419c49501e26aac9a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3f1b82ee7ba8b364cbde920badfc44cd, type: 2}
     - target: {fileID: 919132149155446097, guid: 7db28e3067e6d87419c49501e26aac9a, type: 3}
       propertyPath: m_Name
       value: Slime
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788943867344286557, guid: 7db28e3067e6d87419c49501e26aac9a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2788943867344286557, guid: 7db28e3067e6d87419c49501e26aac9a, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
