@@ -6,10 +6,12 @@ public class MusicManager : MonoBehaviour
 {
     private static AudioSource waitSource;
     private static AudioSource playSource;
-    private static AudioSource effectsSource;
+    public AudioSource effectsSource;
     public AudioClip waitMusic;
     public AudioClip playMusic;
     public AudioClip splashSound;
+    public AudioClip springSound;
+    public AudioClip launchSound;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

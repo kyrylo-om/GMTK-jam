@@ -146,6 +146,7 @@ public class PlayerController : MonoBehaviour
     }
     void PrepareDoubleJump()
     {
+        musicManager.effectsSource.PlayOneShot(musicManager.launchSound);
         jumpDuration *= 2;
         jumpHeight *= 2;
     }
@@ -162,6 +163,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("NoBlock"))
         {
             musicManager.Splash();
+            Debug.Log(other);
             Death();
         }
         if (other.CompareTag("ForbiddenEndTile"))
@@ -171,6 +173,7 @@ public class PlayerController : MonoBehaviour
         }
         if (other.CompareTag("SpringTile"))
         {
+            musicManager.effectsSource.PlayOneShot(musicManager.springSound);
             Vector3 rotation = other.transform.parent.rotation.eulerAngles;
             Vector2Int direction = Vector2Int.zero;
             if (rotation.y == 0) direction = Vector2Int.down;
