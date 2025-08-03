@@ -5,15 +5,18 @@ public class GameManager : MonoBehaviour
     public RhythmManager rhythmManager;
     private MusicManager musicManager;
     public CameraManager cameraManager;
+    public UI UIscript;
     public GameObject levelPrefab;
     public static GameObject currentLevel;
     public static GridManager gridManager;
+    public int levelCount = 1;
 
     public static bool isPlaying = false;
 
     void Start()
     {
         musicManager = GetComponent<MusicManager>();
+        UIscript.ShowText("Level " + levelCount, 62);
 
         currentLevel = Instantiate(levelPrefab, new Vector3(0, 0, 0), Quaternion.identity);
         gridManager = currentLevel.GetComponent<GridManager>();
@@ -49,6 +52,8 @@ public class GameManager : MonoBehaviour
     public void Win()
     {
         // this function is executed after currentLevel was set to new one
+        levelCount++;
+        UIscript.ShowText("Level " + levelCount, 62);
         isPlaying = false;
         StartCoroutine(cameraManager.MoveCamera(gridManager.gridSizeY + 3, 2));
 
