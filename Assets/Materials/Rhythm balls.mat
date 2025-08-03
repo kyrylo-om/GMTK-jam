@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Slime
+  m_Name: Rhythm balls
   m_Shader: {fileID: -6465566751694194690, guid: db6f81acdfc31c349895635c93a8a50a, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -109,6 +109,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _DstBlendAlpha: 0
+    - _Emision_strngth: 0
     - _EnvironmentReflections: 1
     - _Frensel_power: 0
     - _GlossMapScale: 0
@@ -126,13 +127,14 @@ Material:
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
-    - _Transparant: 0.756
+    - _Transparant: 0.481
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _smoothness: 0.66
+    - _smoothness: 0.62
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.14117645, g: 0.56078434, b: 0.5065551, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color_Emision: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Frensel_Color: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
