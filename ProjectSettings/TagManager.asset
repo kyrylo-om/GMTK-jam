@@ -10,6 +10,7 @@ TagManager:
   - SpringTile
   - NoBlock
   - LaunchTile
+  - Flower
   layers:
   - Default
   - TransparentFX

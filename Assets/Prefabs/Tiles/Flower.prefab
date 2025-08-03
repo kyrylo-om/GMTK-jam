@@ -120,6 +120,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Flower
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 905fb84912f20b34ab552767d6fe78ab, type: 3}
+      propertyPath: m_TagString
+      value: Flower
+      objectReference: {fileID: 0}
     - target: {fileID: 1322601609558043100, guid: 905fb84912f20b34ab552767d6fe78ab, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -179,5 +183,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 905fb84912f20b34ab552767d6fe78ab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6305336876457319388}
   m_SourcePrefab: {fileID: 100100000, guid: 905fb84912f20b34ab552767d6fe78ab, type: 3}
+--- !u!1 &8732630711968353737 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 905fb84912f20b34ab552767d6fe78ab, type: 3}
+  m_PrefabInstance: {fileID: 8498820866166452376}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &6305336876457319388
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8732630711968353737}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0}
