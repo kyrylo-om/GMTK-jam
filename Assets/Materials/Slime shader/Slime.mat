@@ -109,6 +109,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _DstBlendAlpha: 0
+    - _Emision_strngth: 0
     - _EnvironmentReflections: 1
     - _Frensel_power: 0
     - _GlossMapScale: 0
@@ -132,7 +133,8 @@ Material:
     - _smoothness: 0.66
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.14117645, g: 0.56078434, b: 0.5065551, a: 1}
+    - _Color: {r: 0.6368376, g: 0.735849, b: 0.6143645, a: 1}
+    - _Color_Emision: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Frensel_Color: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}

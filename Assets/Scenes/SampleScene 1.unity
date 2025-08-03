@@ -4739,6 +4739,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   children: []
+  idle: {fileID: 2100000, guid: fd6b9c04cf50a6c4980394ad3768d76f, type: 2}
+  active: {fileID: 2100000, guid: f6499537863f15744abfaac68a16a8d5, type: 2}
+  accent: {fileID: 2100000, guid: 7cd5a2d6344da5f4588e01514b56428e, type: 2}
 --- !u!4 &1659555543
 Transform:
   m_ObjectHideFlags: 0
