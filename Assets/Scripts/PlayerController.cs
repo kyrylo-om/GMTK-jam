@@ -149,6 +149,18 @@ public class PlayerController : MonoBehaviour
             other.transform.parent.gameObject.GetComponent<EndTile>().animator.Play("End Block Forbidden");
             Death();
         }
+        if (other.CompareTag("SpringTile"))
+        {
+            Vector3 rotation = other.transform.parent.rotation.eulerAngles;
+            Vector2Int direction = Vector2Int.zero;
+            if (rotation.y == 0) direction = Vector2Int.down;
+            else if (rotation.y == 90) direction = Vector2Int.left;
+            else if (rotation.y == 180) direction = Vector2Int.up;
+            else if (rotation.y == 270) direction = Vector2Int.right;
+
+            gridPosition += direction;
+            UpdatePosition();
+        }
         if (other.CompareTag("Win"))
         {
             GameManager.currentLevel = other.transform.parent.parent.gameObject;

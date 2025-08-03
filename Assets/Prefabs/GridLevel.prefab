@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 4906634177120415625, guid: d6cf469a13b873642a716aaa5652aed4, type: 3}
   celesteTilePrefab: {fileID: 8414801484697346815, guid: 53f41ccc728230a42a50e2e52860c1d5, type: 3}
+  springTilePrefab: {fileID: 8639759063686604276, guid: a80a0b905a7c4cf42b8cd9a26cfe23a2, type: 3}
   startTile: {fileID: 9076969988118847510}
   gridSizeX: 5
   gridSizeY: 8
