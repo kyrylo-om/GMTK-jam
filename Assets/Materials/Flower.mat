@@ -46,7 +46,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Color_Texture:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 1acaaa79771892643a0e1b22fb1f048f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -107,7 +107,7 @@ Material:
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _Color01Influence: 0.251
+    - _Color01Influence: 0.408
     - _Color02Influence: 1
     - _Cull: 2
     - _Cutoff: 0.5
@@ -120,7 +120,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Gradient_strength: 0
+    - _Gradient_strength: 0.303
     - _Manual_Bounds: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
@@ -135,16 +135,16 @@ Material:
     - _SrcBlendAlpha: 1
     - _Strength: 0.01
     - _Surface: 0
-    - _Tile_texture: 0
-    - _Triplanar: 0
+    - _Tile_texture: 0.48
+    - _Triplanar: 1
     - _UV_tiling: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color01: {r: 1, g: 0.7619596, b: 0.3537736, a: 0}
-    - _Color02: {r: 0.879, g: 0.2900732, b: 0.224145, a: 0}
+    - _Color01: {r: 1, g: 0.7617022, b: 0.35319155, a: 0}
+    - _Color02: {r: 1, g: 0.33035713, b: 0.25446427, a: 0}
     - _Color03: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Min_Max_Bounds: {r: 0, g: 0, b: 0, a: 0}
