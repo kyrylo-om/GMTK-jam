@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject levelPrefab;
     public static GameObject currentLevel;
     public static GridManager gridManager;
-    public int levelCount = 1;
+    public static int levelCount = 1;
     public int currentPos = 0;
     public int cameraPos = 40;
     public GameObject scenePrefab;
