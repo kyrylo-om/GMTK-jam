@@ -7,6 +7,7 @@ public class GridManager : MonoBehaviour
     public GameObject celesteTilePrefab;
     public GameObject springTilePrefab;
     public GameObject emptyTilePrefab;
+    public GameObject launchTilePrefab;
     public GameObject startTile;
     public int gridSizeX = 5;
     public int gridSizeY;
@@ -19,9 +20,10 @@ public class GridManager : MonoBehaviour
         tileProbabilities = new Dictionary<GameObject, float>()
         {
             { tilePrefab, 0.6f },
-            { celesteTilePrefab, 0.2f },
+            { celesteTilePrefab, 0.1f },
             { springTilePrefab, 0.1f },
-            { emptyTilePrefab, 0.1f }
+            { emptyTilePrefab, 0.1f },
+            { launchTilePrefab, 0.1f }
         };
         GenerateBoard();
     }

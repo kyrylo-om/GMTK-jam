@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ public class BaseTile : MonoBehaviour
     public bool submerged = false;
     public GameObject spotLightPrefab;
     private GameObject spotLight;
+    public event Action OnPlayerLeave;
     void Start()
     {
         PlayerController.OnPlayerDeath += Reset;
@@ -24,6 +26,7 @@ public class BaseTile : MonoBehaviour
         Destroy(spotLight);
         if (GameManager.isPlaying)
         {
+            OnPlayerLeave?.Invoke();
             GetComponent<Collider>().isTrigger = true;
             submerged = true;
             animator.SetTrigger("OnLeave");

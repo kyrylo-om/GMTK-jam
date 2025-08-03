@@ -49,6 +49,7 @@ MonoBehaviour:
   celesteTilePrefab: {fileID: 8414801484697346815, guid: 53f41ccc728230a42a50e2e52860c1d5, type: 3}
   springTilePrefab: {fileID: 8639759063686604276, guid: a80a0b905a7c4cf42b8cd9a26cfe23a2, type: 3}
   emptyTilePrefab: {fileID: 1586414553573220046, guid: bd13eca1b83ecdb4c9b581e4efc120ff, type: 3}
+  launchTilePrefab: {fileID: 4871219981966433703, guid: 278d96744fefb0543b90684f37feea64, type: 3}
   startTile: {fileID: 9076969988118847510}
   gridSizeX: 5
   gridSizeY: 8

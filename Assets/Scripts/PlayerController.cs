@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public bool wasMoved = false;
     public float jumpHeight = 1f;
     public float jumpDuration = 0.2f;
+    public bool doubleJump = false;
 
 
     void Start()
@@ -89,6 +90,11 @@ public class PlayerController : MonoBehaviour
             if (direction != Vector2Int.zero)
             {
                 gridPosition += direction;
+                if (doubleJump)
+                {
+                    gridPosition += direction;
+                    PrepareDoubleJump();
+                }
                 UpdatePosition();
             }
         }
@@ -114,6 +120,11 @@ public class PlayerController : MonoBehaviour
                         wasMoved = true;
 
                         gridPosition += direction;
+                        if (doubleJump)
+                        {
+                            gridPosition += direction;
+                            PrepareDoubleJump();
+                        }
                         UpdatePosition();
 
                     }
@@ -133,8 +144,14 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(Jump(destination));
 
     }
+    void PrepareDoubleJump()
+    {
+        jumpDuration *= 2;
+        jumpHeight *= 2;
+    }
     void Death()
     {
+        doubleJump = false;
         gridPosition = new Vector2Int(0, 0);
         UpdatePosition();
         OnPlayerDeath?.Invoke();
@@ -164,17 +181,23 @@ public class PlayerController : MonoBehaviour
             gridPosition += direction;
             UpdatePosition();
         }
-        if (other.CompareTag("Win"))
+        if (other.CompareTag("LaunchTile"))
         {
-            GameManager.currentLevel = other.transform.parent.parent.gameObject;
-            gridPosition.y = 0;
-            gameManager.Win();
+            doubleJump = true;
         }
+        if (other.CompareTag("Win"))
+            {
+                GameManager.currentLevel = other.transform.parent.parent.gameObject;
+                gridPosition.y = 0;
+                gameManager.Win();
+            }
     }
 
     public IEnumerator Jump(Vector3 destination)
     {
         float jumpProgress = 0f;
+        bool startedWithDouble = doubleJump;
+        doubleJump = false;
         Vector3 jumpStartPosition = transform.position;
 
         while (jumpProgress < 1f)
@@ -185,5 +208,10 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
         transform.position = destination;
+        if (startedWithDouble)
+        {
+            jumpDuration /= 2;
+            jumpHeight /= 2;
+        }
     }
 }

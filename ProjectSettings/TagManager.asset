@@ -9,6 +9,7 @@ TagManager:
   - ForbiddenEndTile
   - SpringTile
   - NoBlock
+  - LaunchTile
   layers:
   - Default
   - TransparentFX
