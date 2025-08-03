@@ -72,6 +72,7 @@ MonoBehaviour:
   animator: {fileID: 9186306983399613246}
   steppedOn: 0
   submerged: 0
+  spotLightPrefab: {fileID: 8643270482932811923, guid: 7a490ee6d4ef46b4a9b01a0e04359f7e, type: 3}
 --- !u!65 &5587677649944702424
 BoxCollider:
   m_ObjectHideFlags: 0

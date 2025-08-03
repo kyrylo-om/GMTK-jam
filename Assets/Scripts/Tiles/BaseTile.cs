@@ -6,6 +6,8 @@ public class BaseTile : MonoBehaviour
     public Animator animator;
     public bool steppedOn = false;
     public bool submerged = false;
+    public GameObject spotLightPrefab;
+    private GameObject spotLight;
     void Start()
     {
         PlayerController.OnPlayerDeath += Reset;
@@ -14,10 +16,12 @@ public class BaseTile : MonoBehaviour
     {
         steppedOn = true;
         animator.SetTrigger("OnStep");
+        spotLight = Instantiate(spotLightPrefab, transform.position, Quaternion.identity);
     }
     private void OnCollisionExit(Collision collision)
     {
         steppedOn = false;
+        Destroy(spotLight);
         if (GameManager.isPlaying)
         {
             GetComponent<Collider>().isTrigger = true;
