@@ -13,6 +13,7 @@ public class EndTile : MonoBehaviour
         {
             if (!activated)
             {
+                animator.Play("End Block Tick", 1);
                 beat--;
                 if (beat < 0) beat = 3;
                 textComponent.text = beat.ToString();
