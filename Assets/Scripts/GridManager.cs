@@ -17,13 +17,15 @@ public class GridManager : MonoBehaviour
 
     void Start()
     {
+        float baseProbability = Mathf.Max(0.3f, 0.9f - GameManager.levelCount * 0.08f);
+        float otherTileProbability = (1f - baseProbability) / 5f;
         tileProbabilities = new Dictionary<GameObject, float>()
         {
-            { tilePrefab, 0.6f },
-            { celesteTilePrefab, 0.1f },
-            { springTilePrefab, 0.1f },
-            { emptyTilePrefab, 0.1f },
-            { launchTilePrefab, 0.1f }
+            { tilePrefab, baseProbability },
+            { celesteTilePrefab, otherTileProbability * 2 },
+            { springTilePrefab, otherTileProbability },
+            { emptyTilePrefab, otherTileProbability },
+            { launchTilePrefab, otherTileProbability }
         };
         GenerateBoard();
     }
