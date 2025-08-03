@@ -189,11 +189,16 @@ public class PlayerController : MonoBehaviour
             doubleJump = true;
         }
         if (other.CompareTag("Win"))
-            {
-                GameManager.currentLevel = other.transform.parent.parent.gameObject;
-                gridPosition.y = 0;
-                gameManager.Win();
-            }
+        {
+            GameManager.currentLevel = other.transform.parent.parent.gameObject;
+            gridPosition.y = 0;
+            gameManager.Win();
+        }
+        if (other.CompareTag("Flower"))
+        {
+            musicManager.effectsSource.PlayOneShot(musicManager.flowerSound);
+            Destroy(other.gameObject);
+        }
     }
 
     public IEnumerator Jump(Vector3 destination)

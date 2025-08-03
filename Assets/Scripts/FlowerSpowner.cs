@@ -5,6 +5,9 @@ public class FlowerSpowner : MonoBehaviour
     public GameObject flowerPrefab;
     void Start()
     {
-        Instantiate(flowerPrefab, gameObject.transform);
+        if (Random.Range(0f, 1f) > 0.95f)
+        {
+            Instantiate(flowerPrefab, gameObject.transform);
+        }
     }
 }

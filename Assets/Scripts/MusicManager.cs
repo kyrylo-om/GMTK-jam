@@ -12,6 +12,7 @@ public class MusicManager : MonoBehaviour
     public AudioClip splashSound;
     public AudioClip springSound;
     public AudioClip launchSound;
+    public AudioClip flowerSound;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

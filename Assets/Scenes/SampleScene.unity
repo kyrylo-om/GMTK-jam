@@ -1076,6 +1076,7 @@ MonoBehaviour:
   splashSound: {fileID: 8300000, guid: 442ea85331939d24ab81ede754a1c9f7, type: 3}
   springSound: {fileID: 8300000, guid: f8378be42231967459f6bf7501f9deeb, type: 3}
   launchSound: {fileID: 8300000, guid: 56c5ae17160ce024ca6a3d57ad7c40da, type: 3}
+  flowerSound: {fileID: 8300000, guid: 1f10c6aca9222b04f92c3936087c9787, type: 3}
 --- !u!82 &938980430
 AudioSource:
   m_ObjectHideFlags: 0
