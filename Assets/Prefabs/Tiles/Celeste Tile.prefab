@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1198975573276909399, guid: d6cf469a13b873642a716aaa5652aed4, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 55ba991a16c69354d8f74718ac291a5b, type: 2}
     - target: {fileID: 1358122621093233026, guid: d6cf469a13b873642a716aaa5652aed4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -48,14 +52,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1605865566932576231, guid: d6cf469a13b873642a716aaa5652aed4, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 55ba991a16c69354d8f74718ac291a5b, type: 2}
+    - target: {fileID: 2674739558857173541, guid: d6cf469a13b873642a716aaa5652aed4, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 55ba991a16c69354d8f74718ac291a5b, type: 2}
+    - target: {fileID: 2692115432125799082, guid: d6cf469a13b873642a716aaa5652aed4, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 55ba991a16c69354d8f74718ac291a5b, type: 2}
     - target: {fileID: 4906634177120415625, guid: d6cf469a13b873642a716aaa5652aed4, type: 3}
       propertyPath: m_Name
       value: Celeste Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 5178210566427731123, guid: d6cf469a13b873642a716aaa5652aed4, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 55ba991a16c69354d8f74718ac291a5b, type: 2}
     - target: {fileID: 5587677649944702424, guid: d6cf469a13b873642a716aaa5652aed4, type: 3}
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8236676565025609339, guid: d6cf469a13b873642a716aaa5652aed4, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 55ba991a16c69354d8f74718ac291a5b, type: 2}
     m_RemovedComponents:
     - {fileID: 5318345441897957212, guid: d6cf469a13b873642a716aaa5652aed4, type: 3}
     m_RemovedGameObjects: []
