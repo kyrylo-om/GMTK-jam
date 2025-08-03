@@ -28,7 +28,7 @@ public class CelesteTile : MonoBehaviour
             }
             else
             {
-                gameObject.tag = "Death";
+                gameObject.tag = "NoBlock";
                 animator.Play("Celeste Tile Disappear");
             }
         }

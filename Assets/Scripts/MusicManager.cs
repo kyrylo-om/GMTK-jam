@@ -6,14 +6,17 @@ public class MusicManager : MonoBehaviour
 {
     private static AudioSource waitSource;
     private static AudioSource playSource;
+    private static AudioSource effectsSource;
     public AudioClip waitMusic;
     public AudioClip playMusic;
+    public AudioClip splashSound;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         waitSource = gameObject.GetComponents<AudioSource>()[0];
         playSource = gameObject.GetComponents<AudioSource>()[1];
+        effectsSource = gameObject.GetComponents<AudioSource>()[4];
         waitSource.PlayOneShot(waitMusic);
         playSource.PlayOneShot(playMusic);
 
@@ -35,7 +38,7 @@ public class MusicManager : MonoBehaviour
             StopMusic();
         };
 
-        Invoke("DelayedStart", 0.1f);
+        // Invoke("DelayedStart", 0.1f);
     }
     void DelayedStart()
     {
@@ -80,5 +83,10 @@ public class MusicManager : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
         }
         yield break;
+    }
+
+    public void Splash()
+    {
+        effectsSource.PlayOneShot(splashSound);
     }
 }

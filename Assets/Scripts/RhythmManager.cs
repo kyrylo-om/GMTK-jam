@@ -26,7 +26,7 @@ public class RhythmManager : MonoBehaviour
     public bool flashCamera = false;
     public static int beat = 0;
     public static int playerSyncedBeat = 0;
-    public static int beatNum = -4;
+    public static int beatNum = 0;
     public static bool beforeBeatWindow;
     public static bool afterBeatWindow;
 

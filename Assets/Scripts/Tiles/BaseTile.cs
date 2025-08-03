@@ -6,7 +6,6 @@ public class BaseTile : MonoBehaviour
     public Animator animator;
     public bool steppedOn = false;
     public bool submerged = false;
-    private bool skipReset = false;
     void Start()
     {
         PlayerController.OnPlayerDeath += Reset;
@@ -19,32 +18,28 @@ public class BaseTile : MonoBehaviour
     private void OnCollisionExit(Collision collision)
     {
         steppedOn = false;
-        if (!skipReset)
+        if (GameManager.isPlaying)
         {
             GetComponent<Collider>().isTrigger = true;
             submerged = true;
             animator.SetTrigger("OnLeave");
-            gameObject.tag = "Death";
-        }
-        else
-        {
-            skipReset = false;
+            gameObject.tag = "NoBlock";
         }
     }
     void Reset()
     {
         GetComponent<Collider>().isTrigger = false;
+        if (steppedOn)
+        {
+            animator.SetTrigger("OnLeave");
+            animator.SetTrigger("Reset");
+        }
         if (submerged)
         {
             animator.SetTrigger("Reset");
         }
-        else if (!submerged && steppedOn)
-        {
-            skipReset = true;
-            animator.SetTrigger("OnLeave");
-            animator.SetTrigger("Reset");
-        }
         submerged = false;
+        steppedOn = false;
         gameObject.tag = "Untagged";
     }
 }

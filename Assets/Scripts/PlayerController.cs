@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public RhythmManager rhythmManager;
     public GameManager gameManager;
+    public MusicManager musicManager;
     public GameObject deathTextPrefab;
 
     public static event Action OnPlayerDeath;
@@ -140,8 +141,9 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Death"))
+        if (other.CompareTag("NoBlock"))
         {
+            musicManager.Splash();
             Death();
         }
         if (other.CompareTag("ForbiddenEndTile"))
