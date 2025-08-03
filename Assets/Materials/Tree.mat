@@ -107,7 +107,7 @@ Material:
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _Color01Influence: 0.325
+    - _Color01Influence: 0.279
     - _Color02Influence: 1
     - _Cull: 2
     - _Cutoff: 0.5
@@ -120,8 +120,10 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Gradient_strength: 0.474
+    - _Gradient_strength: 0.431
+    - _Manual_Bounds: 0
     - _Metallic: 0
+    - _Min_Max_Bounds: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
@@ -136,7 +138,7 @@ Material:
     - _SrcBlendAlpha: 1
     - _Strength: 0.01
     - _Surface: 0
-    - _Tile_texture: 0.2
+    - _Tile_texture: 0.4
     - _ToonRampOffset: 0.3
     - _ToonRampSmoothness: 0
     - _Toon_final_offset: 0.816
@@ -148,10 +150,11 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Bottom_Color: {r: 0.355, g: 0.18903427, b: 0.16242924, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color01: {r: 1, g: 0.99567103, b: 0.60173166, a: 0}
-    - _Color02: {r: 0.4392157, g: 0.23987208, b: 0.1431843, a: 0}
+    - _Color01: {r: 1, g: 0.99863666, b: 0.681, a: 0}
+    - _Color02: {r: 0.624, g: 0.44585833, b: 0.27456, a: 0}
     - _Color03: {r: 0.16470589, g: 0.16470589, b: 0.16470589, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Min_Max_Bounds: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _ToonRampTinting: {r: 0.90800005, g: 0.90800005, b: 0.90800005, a: 0}
     - _Top_Color: {r: 1, g: 0.5008276, b: 0.24800003, a: 0}

@@ -118,7 +118,7 @@ Material:
     - _ClearCoatSmoothness: 0
     - _Cull: 2
     - _Cutoff: 0.5
-    - _Depth_Fade_Distance: 1.83
+    - _Depth_Fade_Distance: 0.96
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -127,18 +127,18 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Horizon_Distance: 10
+    - _Horizon_Distance: 5.2
     - _Intersection_Foam_Cutoff: 4.96
     - _Intersection_Foam_Depth: 1.58
     - _Intersection_Foam_Direction: 0
     - _Intersection_Foam_Fade: 0.25
     - _Intersection_Foam_Speed: 0.03
     - _Intersection_Foam_Tiling: 5
-    - _Lightning_smoothness: 0.38
-    - _Lughtning_Hardness: 0.851
+    - _Lightning_smoothness: 0.34
+    - _Lughtning_Hardness: 0.886
     - _Metallic: 0
-    - _Normals_Scale: 0.09
-    - _Normals_speed: 0.08
+    - _Normals_Scale: 0.07
+    - _Normals_speed: 0.05
     - _Normals_strength: 0.3
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -158,7 +158,7 @@ Material:
     - _SrcBlendAlpha: 1
     - _Surface: 0
     - _Surface_Foam_Direction: 0
-    - _Surface_Foam_Distortion: 0.1
+    - _Surface_Foam_Distortion: 0.2
     - _Surface_Foam_Speed: 0.03
     - _Surface_Foam_Tiling: 11.2
     - _ToonRampOffset: 0
@@ -170,12 +170,12 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Deep_Color: {r: 0, g: 0, b: 0, a: 0.62352943}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Foam_Color: {r: 0.5464905, g: 0.5660378, b: 0.51530796, a: 1}
-    - _Horizon_Color: {r: 1, g: 0.7944628, b: 0, a: 0}
-    - _Intersection_Foam_Color: {r: 0.8196079, g: 1, b: 0.6509804, a: 0}
-    - _Shallow_Color: {r: 0.78898185, g: 0.8490566, b: 0.8232467, a: 1}
+    - _Foam_Color: {r: 0.46652436, g: 0.498, b: 0.416826, a: 1}
+    - _Horizon_Color: {r: 1, g: 0.7593924, b: 0, a: 0}
+    - _Intersection_Foam_Color: {r: 0.809, g: 1, b: 0.97109336, a: 0}
+    - _Shallow_Color: {r: 0.7058824, g: 0.8509804, b: 0.80838794, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _Specular_color: {r: 1, g: 1, b: 1, a: 0.54509807}
+    - _Specular_color: {r: 1, g: 0.9363781, b: 0.865, a: 0.54509807}
     - _ToonRampTinting: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
