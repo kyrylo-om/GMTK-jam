@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using static Unity.VisualScripting.Metadata;
 
 public class BallsRhythm : MonoBehaviour
 {
